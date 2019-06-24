@@ -1,9 +1,9 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
-import Layout from "../components/layout"
-import PostList from "../components/postList"
-import { useStaticQuery, graphql } from "gatsby"
+import Layout from "../components/layout";
+import PostList from "../components/postList";
+import { useStaticQuery, graphql } from "gatsby";
 const getPosts = graphql`
   {
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
@@ -29,16 +29,17 @@ const getPosts = graphql`
       }
     }
   }
-`
+`;
 
 const IndexPage = () => {
-  const response = useStaticQuery(getPosts)
-  console.log(response)
+  const response = useStaticQuery(getPosts);
+  const posts = response.allMdx.edges;
+
   return (
     <Layout>
-      <PostList />
+      <PostList posts={posts} />
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;

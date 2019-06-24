@@ -1,12 +1,19 @@
-import React from "react"
-import PostCard from "./postCard"
-const PostList = props => {
+import React from "react";
+import PostCard from "./postCard";
+import styles from "../css/postlist.module.css";
+const PostList = ({ posts }) => {
+  console.log(posts);
   return (
-    <div>
-      <h1>PostList</h1>
-      <PostCard />
-    </div>
-  )
-}
+    <section className={styles.posts}>
+      <h1>Jin Kazama</h1>
+      <h4>Personal Blog</h4>
+      <div className={styles.center}>
+        {posts.map(({ node }, index) => {
+          return <PostCard key={index} post={node} />;
+        })}
+      </div>
+    </section>
+  );
+};
 
-export default PostList
+export default PostList;
