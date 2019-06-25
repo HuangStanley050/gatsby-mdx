@@ -6,7 +6,7 @@ import Layout from "../components/layout";
 import { MDXRenderer } from "gatsby-mdx";
 
 const PostTemplate = props => {
-  return null;
+  return <h1>hi</h1>;
 };
 
 export default PostTemplate;
